@@ -35,6 +35,8 @@ export const signup = async (req, res, next) => {
       role: "user",
     });
 
+    await genToken(newUser, res);
+
     res.status(201).json({ message: "Registration Successful", data: newUser });
   } catch (error) {
     console.log("Error in signup controller", error);
